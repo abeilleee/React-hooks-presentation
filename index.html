@@ -1,40 +1,389 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
 
-		<title>reveal.js</title>
+    <title>reveal.js</title>
 
-		<link rel="stylesheet" href="dist/reset.css">
-		<link rel="stylesheet" href="dist/reveal.css">
-		<link rel="stylesheet" href="dist/theme/black.css">
+    <link rel="stylesheet" href="dist/reset.css" />
+    <link rel="stylesheet" href="dist/reveal.css" />
+    <link rel="stylesheet" href="dist/theme/black.css" />
 
-		<!-- Theme used for syntax highlighted code -->
-		<link rel="stylesheet" href="plugin/highlight/monokai.css">
-	</head>
-	<body>
-		<div class="reveal">
-			<div class="slides">
-				<section>Slide 1</section>
-				<section>Slide 2</section>
-			</div>
-		</div>
+    <!-- Theme used for syntax highlighted code -->
+    <link rel="stylesheet" href="plugin/highlight/monokai.css" />
+  </head>
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h2>React Hooks</h2>
+        </section>
 
-		<script src="dist/reveal.js"></script>
-		<script src="plugin/notes/notes.js"></script>
-		<script src="plugin/markdown/markdown.js"></script>
-		<script src="plugin/highlight/highlight.js"></script>
-		<script>
-			// More info about initialization & config:
-			// - https://revealjs.com/initialization/
-			// - https://revealjs.com/config/
-			Reveal.initialize({
-				hash: true,
+        <section>
+          <section>
+            <h4>What is React Hooks ?</h4>
+            <ul>
+              <li class="fragment">
+                React Hooks are functions that let you 'hook into' React state
+                and lifecycle features from function components
+              </li>
+              <li class="fragment">
+                They were introduced in React 16.8 to address the limitations of
+                class components
+              </li>
+              <li class="fragment">Starts with the prefix "use"</li>
+            </ul>
+          </section>
+          <section>
+            <h4>Key benefits:</h4>
+            <ul>
+              <li class="fragment">Write less code</li>
+              <li class="fragment">More reusable logic</li>
+              <li class="fragment">
+                More readable and maintainable components
+              </li>
+              <li class="fragment">Easier to test</li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <h4>Built-in React Hooks:</h4>
+          <ul>
+            <li class="fragment">State Hooks</li>
+            <li class="fragment">Context Hooks</li>
+            <li class="fragment">Ref Hooks</li>
+            <li class="fragment">Effect Hooks</li>
+            <li class="fragment">Performance Hooks</li>
+            <li class="fragment">Other Hooks</li>
+            <li class="fragment">Custom Hooks</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h4>State Hooks</h4>
+            <p style="text-align: left">
+              State Hooks enable functional components to manage local state
+              effortlessly, aligning with React's philosophy of simplicity and
+              composability.
+            </p>
 
-				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
-			});
-		</script>
-	</body>
+            <p style="text-align: left">
+              To add to state a component you can use one of the these Hooks:
+            </p>
+            <ol>
+              <li><span class="highlight-span">useState</span></li>
+              <li><span class="highlight-span">useReducer</span></li>
+            </ol>
+          </section>
+          <section>
+            <h4>useState</h4>
+            <ul>
+              <li style="list-style-type: none">
+                Allows you to add state to functional components. It lets you
+                declare a state variable and a function to update that variable.
+              </li>
+              <li>
+                Parameter: initialState - the value you want the state to be
+                initially.
+              </li>
+              <li>
+                Returns: returns an array with exactly two values: the current
+                state, the function
+                <pre><code>const [name, setName] = useState('Edward');</code></pre>
+              </li>
+            </ul>
+          </section>
+
+          <section>
+            <h4>useReducer</h4>
+            <ul style="list-style-type: none">
+              <li style="font-size: 32px">
+                The useReducer Hook in React is a powerful alternative to
+                useState for managing complex state logic within your
+                components.
+              </li>
+              <li style="font-size: 32px">
+                Unlike useState, which is ideal for simple state updates,
+                useReducer is more suited for handling complex state logic that
+                involves multiple sub-values or intricate state transitions.
+              </li>
+              <li class="fragment">
+                <pre><code>const [state, dispatch] = useReducer(reducer, initialState);</code></pre>
+              </li>
+              <li>
+                <ul class="fragment" style="font-size: 25px">
+                  <li>
+                    reducer: A function that defines how the state should be
+                    updated based on the action. It takes two parameters: the
+                    current state and the action.
+                  </li>
+                  <li>initialState: The initial value of the state.</li>
+                  <li>
+                    Statestates: The current state returned from the useReducer
+                    hook.
+                  </li>
+                  <li>
+                    dispatch: A function used to send an action to the reducer
+                    to update the state.
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </section>
+        </section>
+
+        <section>
+          <section>
+            <h4>Context hooks</h4>
+            <p>
+              The useContext hook in React allows components to consume values
+              from the React context.
+            </p>
+            <pre><code>const contextValue = useContext(MyContext);</code></pre>
+          </section>
+          <section>
+            <pre><code class="language-jsx">function MyComponent() {
+  const theme = useContext(ThemeContext);
+
+  return (
+    &lt;div style={{ backgroundColor: theme.background, color: theme.color }}&gt;
+      This component is using the {theme.name} theme!
+    &lt;/div&gt;
+  );
+}
+
+export default MyComponent;  </code></pre>
+          </section>
+        </section>
+
+        <section>
+          <h4>Ref Hooks</h4>
+          <p style="text-align: left">
+            Refs provide a way to access DOM nodes directly within functional
+            components.
+          </p>
+          <ul>
+            <li>
+              <span class="highlight-span">useRef</span> declares a ref. You can
+              hold any value in it, but most often it’s used to hold a DOM node.
+            </li>
+            <li>
+              <span class="highlight-span">useImperativeHandle</span> lets you
+              customize the ref exposed by your component. This is rarely used.
+            </li>
+          </ul>
+        </section>
+
+        <section>
+          <section>
+            <h4>Effect Hooks</h4>
+            <p style="text-align: left">
+              Effect Hooks in React allow components to interact with and stay
+              synchronized with external systems, such as handling network
+              requests, manipulating the browser's DOM, managing animations,
+              integrating with widgets from other UI libraries, and working with
+              non-React code.
+            </p>
+            <ul>
+              Hooks:
+              <li><span class="highlight-span">useEffect</span></li>
+              <li><span class="highlight-span">useLayoutEffect</span></li>
+              <li><span class="highlight-span">useInsertionEffect</span></li>
+            </ul>
+          </section>
+          <section>
+            <h4>useEffect</h4>
+            <p style="text-align: left">
+              Connects a component to an external system. By using useEffect,
+              you can easily manage tasks like data fetching, subscribing to
+              events, and cleaning up resources.
+            </p>
+            <pre class="fragment"><code>useEffect(() => {
+  // Your side effect code here
+}, [/* dependencies */]);</code></pre>
+            <ul class="fragment">
+              It takes two arguments:
+              <li>
+                <span class="highlight-span">Function</span>: This function
+                contains the code you want to run as a side effect.
+              </li>
+              <li>
+                <span class="highlight-span"
+                  >The optional array of dependencies:</span
+                >
+                This array tells React when to re-run the effect.
+              </li>
+            </ul>
+          </section>
+          <section>
+            <ul>
+              <li>
+                useLayoutEffect
+                <p style="text-align: left">
+                  Similar to useEffect, but it runs synchronously after all DOM
+                  mutations. Use it when you need to read layout from the DOM
+                  and synchronously re-render. Use with caution, as it can
+                  impact performance.
+                </p>
+              </li>
+              <li class="fragment">
+                useInsertionEffect
+                <p style="text-align: left">
+                  Fires before React makes changes to the DOM. Libraries can
+                  insert dynamic CSS here.
+                </p>
+              </li>
+            </ul>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h4>Perfomance hooks</h4>
+            <p style="text-align: left">
+              These hooks empower us to write more efficient components, reduce
+              unnecessary re-renders, and improve the responsiveness of our
+              applications.
+            </p>
+            <ul>
+              Hooks:
+              <li class="fragment">
+                <span class="highlight-span">useMemo</span>
+              </li>
+              <li class="fragment">
+                <span class="highlight-span">useCallback</span>
+              </li>
+              <li class="fragment">
+                <span class="highlight-span">useTransition</span>
+              </li>
+              <li class="fragment">
+                <span class="highlight-span">useDeferredValue</span>
+              </li>
+            </ul>
+          </section>
+          <section>
+            <h4>useMemo</h4>
+            <p style="text-align: left">
+              It lets you memoize the result of a function. Essentially, it
+              helps you avoid re-running expensive calculations unnecessarily.
+            </p>
+            <ul>
+              Takes two arguments:
+              <li>
+                <span class="highlight-span">calculateValue</span>: The function
+                calculating the value that you want to cache.
+              </li>
+              <li>
+                <span class="highlight-span">dependencies</span>: The list of
+                all reactive values referenced inside of the calculateValue
+                code. Reactive values include props, state, and all the
+                variables and functions declared directly inside your component
+                body.
+              </li>
+            </ul>
+          </section>
+          <section>
+            Here's the basic syntax:
+            <pre><code>const memoizedValue = useMemo(() => {
+  // Your expensive calculation here
+  return computeExpensiveValue(a, b);
+}, [a, b]);
+</code></pre>
+          </section>
+          <section>
+            <h4>useCallback</h4>
+            <p style="text-align: left">
+              It memoizes a callback function, preventing it from being
+              recreated on every render unless its dependencies change.
+            </p>
+            <ul>
+              Takes two arguments:
+              <li><span class="highlight-span">callback function</span></li>
+              <li>
+                <span class="highlight-span">a dependency array</span>
+              </li>
+            </ul>
+          </section>
+          <section>
+            Here's the basic syntax:
+            <pre><code>const memoizedCallback = useCallback(
+  () => {
+    // Do something with dependencies
+  },
+  [dependency1, dependency2],
+);
+
+</code></pre>
+          </section>
+        </section>
+        <section>
+          <h4>Other Hooks</h4>
+          <p class="fragment" style="text-align: left">
+            While they are used less, these hooks are important in providing
+            library authors to create robust and user-friendly applications.
+          </p>
+          <ul>
+            <li class="fragment">
+              <span class="highlight-span">useDebugValue</span>
+            </li>
+            <li class="fragment"><span class="highlight-span">useId</span></li>
+            <li class="fragment">
+              <span class="highlight-span">useSyncExternalStore </span>
+            </li>
+            <li class="fragment">
+              <span class="highlight-span">useActionState</span>
+            </li>
+          </ul>
+        </section>
+        <section>
+          <h4>Custom Hooks</h4>
+          <p style="text-align: left">
+            In React you can create your own Hooks for your application’s needs.
+            It allows developers to extract reusable logic, keeping components
+            clean and modular.
+          </p>
+          <pre><code>function useCustomHook() {
+    // Use built-in hooks here
+    return someValue;
+}
+
+</code></pre>
+        </section>
+
+        <section>
+          <h4>Key rules:</h4>
+          <ul>
+            <li>
+              Hooks can only be called inside React functional components or
+              custom Hooks.
+            </li>
+            <li>Hooks must be called in the same order on every render.</li>
+            <li>Custom Hooks should also follow these rules</li>
+            <li>
+              Don't place hooks inside loops, conditions or nested functions.
+            </li>
+          </ul>
+        </section>
+      </div>
+    </div>
+
+    <script src="dist/reveal.js"></script>
+    <script src="plugin/notes/notes.js"></script>
+    <script src="plugin/markdown/markdown.js"></script>
+    <script src="plugin/highlight/highlight.js"></script>
+    <script>
+      // More info about initialization & config:
+      // - https://revealjs.com/initialization/
+      // - https://revealjs.com/config/
+      Reveal.initialize({
+        hash: true,
+
+        // Learn about plugins: https://revealjs.com/plugins/
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
 </html>
