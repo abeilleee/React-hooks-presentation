@@ -4,13 +4,7 @@
  * By Hakim El Hattab, http://hakim.se
  */
 @import url(./fonts/source-sans-pro/source-sans-pro.css);
-section.has-light-background,
-section.has-light-background h1,
-section.has-light-background h2,
-section.has-light-background h3,
-section.has-light-background h4,
-section.has-light-background h5,
-section.has-light-background h6 {
+section.has-light-background, section.has-light-background h1, section.has-light-background h2, section.has-light-background h3, section.has-light-background h4, section.has-light-background h5, section.has-light-background h6 {
   color: #222;
 }
 
@@ -214,8 +208,7 @@ section.has-light-background h6 {
 .reveal pre {
   display: block;
   position: relative;
-  width: 105%;
-  max-height: 700px;
+  width: 90%;
   margin: var(--r-block-margin) auto;
   text-align: left;
   font-size: 0.55em;
@@ -235,6 +228,7 @@ section.has-light-background h6 {
   display: block;
   padding: 5px;
   overflow: auto;
+  max-height: 400px;
   word-wrap: normal;
 }
 
@@ -263,13 +257,13 @@ section.has-light-background h6 {
   border-bottom: 1px solid;
 }
 
-.reveal table th[align="center"],
-.reveal table td[align="center"] {
+.reveal table th[align=center],
+.reveal table td[align=center] {
   text-align: center;
 }
 
-.reveal table th[align="right"],
-.reveal table td[align="right"] {
+.reveal table th[align=right],
+.reveal table td[align=right] {
   text-align: right;
 }
 
@@ -301,10 +295,6 @@ section.has-light-background h6 {
 
 .reveal img {
   margin: var(--r-block-margin) 0;
-}
-
-.highlight-span {
-  color: #42affa;
 }
 
 /*********************************************
